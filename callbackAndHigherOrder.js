@@ -151,9 +151,7 @@ uniq(names, uniqArr => {
 
 // CODE HERE 
 function each(arr, callback){
-  for(i = 0; i < arr.length; i++){
-    callback(arr[i], i)
-  }
+  arr.forEach((name, index) => callback(name, index))
 }
 
 
@@ -165,9 +163,9 @@ function each(arr, callback){
 */
 
 // CODE HERE
-each(names, (item, arr) => {
+each(names, (item, index) => {
   console.log(`The item at index ${index} is ${item}`)
-}
+})
 
 
 ////////// PROBLEM 7 //////////
@@ -201,15 +199,24 @@ var users = [
 // Do not edit the code above.
 
 // CODE HERE 
+function getUserById(users, id, cb){
+  for(i=0; i < users.length; i++){
+    console.log(users[i])
+    if(users[i].id === id){
+      console.log(`hit2`)
+      cb(users[i])
+    }
+  }
+}
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// getUserById(users, '16t', user => {
-//   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
-// })
+getUserById(users, '16t', user => {
+  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
+})
 
 ////////// CHALLENGE //////////
 
@@ -228,6 +235,7 @@ var users = [
 */
 
 // CODE HERE
+
 
 /*
   Now that you have addingFactory, you can create other
